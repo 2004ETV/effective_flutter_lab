@@ -1,15 +1,17 @@
 import 'package:effective_flutter_lab/src/common/assets/assets.dart';
 import 'package:effective_flutter_lab/src/common/extensions/context_extensions.dart';
 import 'package:effective_flutter_lab/src/common/extensions/widget_extensions.dart';
-import 'package:effective_flutter_lab/src/config/styles/styles.dart';
+import 'package:effective_flutter_lab/src/screens/profile/domain/models/interest_model.dart';
 import 'package:effective_flutter_lab/src/screens/profile/domain/models/service_model.dart';
-import 'package:effective_flutter_lab/src/screens/profile/domain/models/tariffs_model.dart';
+import 'package:effective_flutter_lab/src/screens/profile/domain/models/tariff_model.dart';
+import 'package:effective_flutter_lab/src/screens/profile/presentation/widgets/interests_chip.dart';
 import 'package:effective_flutter_lab/src/screens/profile/presentation/widgets/profile_services_card.dart';
 import 'package:effective_flutter_lab/src/screens/profile/presentation/widgets/tariffs_cell.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends HookWidget {
   const ProfilePage({super.key});
 
   @override
@@ -29,33 +31,35 @@ class ProfilePage extends StatelessWidget {
       ),
     ];
 
-    final tariffsList = <TariffsModel>[
-      const TariffsModel(
+    final tariffsList = <TariffModel>[
+      const TariffModel(
         icon: AppAssets.speedometer,
         title: 'Изменить суточный лимит',
         subtitle: 'Изменить суточный лимит',
       ),
-      const TariffsModel(
+      const TariffModel(
         icon: AppAssets.percent,
         title: 'Переводы без комиссии',
         subtitle: 'Показать остаток в этом месяце',
       ),
-      const TariffsModel(
+      const TariffModel(
         icon: AppAssets.arrowsForwardBack,
         title: 'Информация о тарифах и лимитах',
         subtitle: null,
       ),
     ];
 
-    final interestsList = <String>[
-      'Еда',
-      'Саморазвитие',
-      'Технологии',
-      'Дом',
-      'Досуг',
-      'Забота о себе',
-      'Наука',
+    final interestsList = <InterestModel>[
+      const InterestModel(label: 'Еда'),
+      const InterestModel(label: 'Саморазвитие'),
+      const InterestModel(label: 'Технологии'),
+      const InterestModel(label: 'Дом'),
+      const InterestModel(label: 'Досуг'),
+      const InterestModel(label: 'Забота о себе'),
+      const InterestModel(label: 'Наука'),
     ];
+
+    final selectedInterests = useState<List<InterestModel>>([]);
 
     return Builder(
       builder: (context) {
@@ -139,22 +143,43 @@ class ProfilePage extends StatelessWidget {
             Wrap(
               runSpacing: 8,
               spacing: 8,
-              children: List.generate(
-                interestsList.length,
-                (index) {
-                  return Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: context.theme.colorScheme.primary.withOpacity(.08),
-                      borderRadius: BorderRadius.circular(AppDimensions.circle),
-                    ),
-                    child: Text(interestsList[index]),
-                  );
-                },
-              ),
+              children: interestsList.map((interest) {
+                return InterestsChip(
+                  model: interest,
+                  isSelected: selectedInterests.value.contains(interest),
+                  onSelected: (value) {
+                    if (value) {
+                      selectedInterests.value = [
+                        ...selectedInterests.value..add(interest),
+                      ];
+                    } else {
+                      selectedInterests.value = [
+                        ...selectedInterests.value..remove(interest),
+                      ];
+                    }
+                  },
+                );
+              }).toList(),
+              // children: List.generate(
+              //   interestsList.length,
+              //   (index) {
+              //     return InterestsChip(
+              //       model: interestsList[index],
+              //       isSelected: selectedInterests.value.contains(index),
+              //       onSelected: (value) {
+              //         if (value) {
+              //           selectedInterests.value = [
+              //             ...selectedInterests.value..add(index),
+              //           ];
+              //         } else {
+              //           selectedInterests.value = [
+              //             ...selectedInterests.value..remove(index),
+              //           ];
+              //         }
+              //       },
+              //     );
+              //   },
+              // ),
             ).paddingSymmetric(horizontal: 16).sliverToBox,
             SliverGap(MediaQuery.paddingOf(context).bottom + 32),
           ],
