@@ -160,26 +160,6 @@ class ProfilePage extends HookWidget {
                   },
                 );
               }).toList(),
-              // children: List.generate(
-              //   interestsList.length,
-              //   (index) {
-              //     return InterestsChip(
-              //       model: interestsList[index],
-              //       isSelected: selectedInterests.value.contains(index),
-              //       onSelected: (value) {
-              //         if (value) {
-              //           selectedInterests.value = [
-              //             ...selectedInterests.value..add(index),
-              //           ];
-              //         } else {
-              //           selectedInterests.value = [
-              //             ...selectedInterests.value..remove(index),
-              //           ];
-              //         }
-              //       },
-              //     );
-              //   },
-              // ),
             ).paddingSymmetric(horizontal: 16).sliverToBox,
             SliverGap(MediaQuery.paddingOf(context).bottom + 32),
           ],
