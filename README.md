@@ -1,16 +1,14 @@
 # effective_flutter_lab
 
-Laboratory work on Flutter
+Laboratory work on the development of a mobile application screen on Flutter
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+|                           Home                           |                           Home                           |
+|:--------------------------------------------------------:|:--------------------------------------------------------:|
+| <img src="assets/readme/home_1_framed.png" height="400"> | <img src="assets/readme/home_2_framed.png" height="400"> |
 
-A few resources to get you started if this is your first Flutter project:
+## Specification
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Flutter version 3.17.0-0.0.pre
+* Dart version 3.3.0 (build 3.3.0-91.0.dev)
