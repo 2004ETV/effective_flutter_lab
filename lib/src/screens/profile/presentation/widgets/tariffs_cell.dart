@@ -1,5 +1,5 @@
 import 'package:effective_flutter_lab/src/common/widgets/svg_icon.dart';
-import 'package:effective_flutter_lab/src/screens/profile/domain/models/tariffs_model.dart';
+import 'package:effective_flutter_lab/src/screens/profile/domain/models/tariff_model.dart';
 import 'package:flutter/material.dart';
 
 class TariffsCell extends StatelessWidget {
@@ -9,7 +9,7 @@ class TariffsCell extends StatelessWidget {
     required this.onTap,
   });
 
-  final TariffsModel model;
+  final TariffModel model;
   final VoidCallback? onTap;
 
   @override

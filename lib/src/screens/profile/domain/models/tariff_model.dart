@@ -1,5 +1,5 @@
-class TariffsModel {
-  const TariffsModel({
+class TariffModel {
+  const TariffModel({
     required this.icon,
     required this.title,
     required this.subtitle,
