@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "profileTabName": "Profile",
+  "settingsTabName": "Settings",
+  "profileServicesTitle": "You have connected",
+  "profileServicesDescription": "Subscriptions, autopayments and services you have subscribed to",
+  "profileTariffsTitle": "Tariffs and limits",
+  "profileTariffsDescription": "For operations in Sberbank Online",
+  "profileInterestsTitle": "Interests",
+  "profileInterestsDescription": "We select stories and suggestions on topics that you like"
+}
