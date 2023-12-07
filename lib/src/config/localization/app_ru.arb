@@ -1,0 +1,11 @@
+{
+  "@@locale": "ru",
+  "profileTabName": "Профиль",
+  "settingsTabName": "Настройки",
+  "profileServicesTitle": "У вас подключено",
+  "profileServicesDescription": "Подписки, автоплатежи и сервисы на которые вы подписались",
+  "profileTariffsTitle": "Тарифы и лимиты",
+  "profileTariffsDescription": "Для операций в Сбербанк Онлайн",
+  "profileInterestsTitle": "Интересы",
+  "profileInterestsDescription": "Мы подбираем истории и предложения по темам, которые вам нравятся"
+}
